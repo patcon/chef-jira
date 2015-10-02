@@ -25,7 +25,6 @@
   <% else -%>
     Require all granted
   <% end -%>
-
   </Proxy>
   ProxyPass        / http://localhost:<%= node['jira']['tomcat']['port'] %>/ connectiontimeout=5 timeout=300
   ProxyPassReverse / http://localhost:<%= node['jira']['tomcat']['port'] %>/
