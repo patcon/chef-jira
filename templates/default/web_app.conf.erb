@@ -19,8 +19,13 @@
   LogLevel warn
 
   <Proxy *>
+  <% if node['apache']['version'].to_f < 2.4 -%>
     Order Deny,Allow
     Allow from all
+  <% else -%>
+    Require all granted
+  <% end -%>
+
   </Proxy>
   ProxyPass        / http://localhost:<%= node['jira']['tomcat']['port'] %>/ connectiontimeout=5 timeout=300
   ProxyPassReverse / http://localhost:<%= node['jira']['tomcat']['port'] %>/
