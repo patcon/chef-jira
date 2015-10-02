@@ -161,9 +161,11 @@ default['jira']['build']['file'] = "#{node['jira']['install_path']}/dist-#{node[
 default['jira']['database']['host']     = 'localhost'
 default['jira']['database']['name']     = 'jira'
 default['jira']['database']['password'] = 'changeit'
-default['jira']['database']['port']     = 3306
 default['jira']['database']['type']     = 'mysql'
 default['jira']['database']['user']     = 'jira'
+
+# Default set in helper library
+default['jira']['database']['port']     = nil
 
 default['jira']['jars']['deploy_jars'] = %w(carol carol-properties hsqldb jcl-over-slf4j jonas_timer jotm jotm-iiops_stubs jotm-jmrp_stubs jta jul-to-slf4j log4j objectweb-datasource ots-jts slf4j-api slf4j-log4j12 xapool)
 default['jira']['jars']['install_path'] = node['jira']['install_path'] + '-jars'
